@@ -6,6 +6,11 @@ function addFigureLabel(figHandle, axesHandle, LabelString, LabelSize)
 % LabelString - label string
 % LabelSize - the font size
 % Note that this function should be used after all subplots are ready.
+% 
+% Author: Ke Ma, @21/12/2023
+% University of Cambridge
+%
+
 
 %% main function
 % define the position of the label axes
