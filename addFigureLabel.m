@@ -5,6 +5,7 @@ function addFigureLabel(figHandle, axesHandle, LabelString, LabelSize)
 % axesHandle - the axes handle (check axes.OuterPosition)
 % LabelString - label string
 % LabelSize - the font size
+% Note that this function should be used after all subplots are ready.
 
 %% main function
 % define the position of the label axes
