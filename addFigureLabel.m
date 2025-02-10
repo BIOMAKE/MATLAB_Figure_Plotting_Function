@@ -1,4 +1,4 @@
-function addFigureLabel(figHandle, axesHandle, LabelString, LabelSize)
+function addFigureLabel(figHandle, axesHandle, LabelString, LabelSize, horziAdjust, vertiAdjust)
 % This function is to add labels to each subplot in a figure object.
 % Input:
 % figHandle - the created figure window object
@@ -15,15 +15,23 @@ function addFigureLabel(figHandle, axesHandle, LabelString, LabelSize)
 %% main function
 % define the position of the label axes
 axesPosition = axesHandle.OuterPosition;
-leftPosition = axesPosition(1);
-bottomPosition = axesPosition(2) + axesPosition(4);
+leftPosition = axesPosition(1) + horziAdjust;
+bottomPosition = axesPosition(2) + axesPosition(4) + vertiAdjust;
 
 % create the axes  
 ax_1 = axes(figHandle, 'Position', [leftPosition, bottomPosition, 0.08, 0.05], 'Clipping', 'off', 'Box', 'off');
 axis(ax_1,'off');
 axis(ax_1, [0,1,-1,0]);
-text(ax_1, 0, -1, LabelString, ...
+text(ax_1, 0, -1, ['\textbf{', LabelString, '}'], ...
     'Interpreter', 'Latex', 'FontSize', LabelSize, ...
-    'HorizontalAlignment', 'Left', 'VerticalAlignment', 'middle');
+    'HorizontalAlignment', 'Left', 'VerticalAlignment', 'cap');
+
+% % annotation
+% t = annotation("textbox");
+% t.FontSize = 12;
+% t.String = 'A';
+% t.Position = [leftPosition, bottomPosition, 0.08, 0.05];
+% t.EdgeColor = [1, 1, 1];
+
 
 end
